@@ -491,7 +491,10 @@ def send_license_alerts():
             mail.send(msg)
             print(f"[INFO] Summary email sent to {email}")
 
-
+@app.route('/run-scheduler')
+def run_scheduler():
+    send_license_alerts()   # call the same function we wrote earlier
+    return "Scheduler executed!"
          
 scheduler = BackgroundScheduler(timezone=pytz.timezone("Asia/Kolkata"))
 scheduler.add_job(
