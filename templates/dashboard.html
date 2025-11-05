@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>You are Logged in !!!</h1><br>
+    <a href="{{url_for('logout')}}">Click here to logout!!</a>
+</body>
+</html> -->
+
+{% extends 'base.html' %} 
+
+{% block body %}
+
+    <!-- <h1>You are Logged in !!!</h1><br>
+    <a href="\license">Click here to access Licenses.</a><br><br>
+    <a href="{{url_for('logout')}}">Click here to logout!!</a> -->
+
+
+
+<div class="dashboard-container">
+
+    <!-- Navbar -->
+    <div class="dashboard-nav">
+        <h2>License Dashboard</h2>
+        <div class="nav-right">
+            <span>Welcome, {{ current_user.username }} 👋</span>
+            <a href="{{ url_for('license') }}" class="btn">View Licenses</a>
+            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+        <div class="card total">
+            <h3>Total Licenses</h3>
+            <p>{{ total_licenses }}</p>
+        </div>
+        <div class="card active">
+            <h3>Active</h3>
+            <p>{{ active_licenses }}</p>
+        </div>
+        <div class="card expired">
+            <h3>Expired</h3>
+            <p>{{ expired_licenses }}</p>
+        </div>
+        <div class="card soon">
+            <h3>Expiring Soon</h3>
+            <p>{{ expiring_soon }}</p>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+        <div class="chart-card">
+            <h4>License Status Overview</h4>
+            <canvas id="statusChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h4>Expiry Trends</h4>
+            <canvas id="expiryChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Upcoming Expirations -->
+    <div class="table-section">
+        <h4>Upcoming Expirations (Next 30 Days)</h4>
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Expiry Date</th>
+                <th>Status</th>
+                <th>Days Left</th>
+            </tr>
+            {% for license in upcoming_licenses %}
+            {% set days_left = (license.expiry_date - now().date()).days %}
+            <tr class="
+                {% if days_left < 10 %}urgent
+                {% elif days_left < 20 %}warning
+                {% else %}safe
+                {% endif %}
+            ">
+                <td>{{ license.product_name }}</td>
+                <td>{{ license.expiry_date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ license.status }}</td>
+                <td>{{ days_left }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

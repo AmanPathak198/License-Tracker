@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <H2> Login Here!! </H2>
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}<br>  
+        {{ form.username }}<br>
+        {{ form.password }}<br>
+        {{ form.submit}}
+    </form>
+    <br>
+
+    <a href="{{url_for('register')}}">Don't have an account? Sign Up Here!!</a><br>
+</body>
+</html> -->
+
+{% extends 'base.html' %} 
+
+{% block body %}
+
+<div class = "login-container">
+    <div class = "overlay">
+        <H2> Login Here!! </H2>
+
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}<br>  
+        {{ form.username }}<br><br>
+        {{ form.password }}<br><br>
+        {{ form.submit}}
+    </form>
+    <br>
+
+    <a href="{{url_for('register')}}">Don't have an account? Sign Up Here!!</a><br>
+
+    </div>
+    
+
+</div>
+
+    
+
+{% endblock %}

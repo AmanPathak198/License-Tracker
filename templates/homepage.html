@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+
+<div class = "home-container">
+    <div class = "overlay">
+        <h1> Welcome to License Tracker App</h1>
+        <div class = "buttons">
+            <a href="{{url_for('login')}}" class="btn">Login</a><br>
+            <a href="{{url_for('register')}}" class="btn">Register</a><br>
+
+        </div>
+    </div>
+</div>
+
+<!-- <h3>This is the Homepage</h3>
+<br> -->
+    <!-- <a href="{{url_for('login')}}">Login Page</a><br>
+    <a href="{{url_for('register')}}">Register Page</a><br> -->
+    <!-- <a href="\license">Licenses</a> -->
+
+{% endblock %}

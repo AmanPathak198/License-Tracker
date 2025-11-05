@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>Update License</h2>
+
+<form method="POST">
+    Product Name: <input type="text" name="product_name" value="{{ license.product_name }}"><br><br>
+    Expiry Date: <input type="date" name="expiry_date" value="{{ license.expiry_date }}"><br><br>
+    Owner Email: <input type="email" name="owner_email" value="{{ license.owner_email }}"><br><br>
+    <input type="submit" value="Update">
+</form>
+
+<a href="{{ url_for('license') }}">Back to License List</a>
+{% endblock %}

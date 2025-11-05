@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New License</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_license.css') }}">
+    
+</head>
+<body>
+
+    <div class="form-container">
+        <h3>Add New License</h3>
+
+        <form action="/add" method="POST">
+            <label>Product Name</label>
+            <input type="text" name="product_name" placeholder="Enter product name..." required>
+
+            <label>Expiry Date</label>
+            <input type="date" name="expiry_date" required>
+
+            <label>Owner Email</label>
+            <input type="email" name="email_address" placeholder="Enter owner email..." required>
+
+            <button type="submit">Add License</button>
+        </form>
+
+        <div class="nav-links">
+            <a href="{{ url_for('license') }}">Back to License List</a> |
+            <a href="{{ url_for('dashboard') }}">Return to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add License</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/add_license.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add New License</h2>
+
+    <form action="/add" method="POST">
+      <label>Product Name</label>
+      <input type="text" name="product_name" placeholder="Enter product name..." required>
+
+      <label>License Key</label>
+      <input type="text" name="license_key" placeholder="Enter license key..." required>
+
+      <label>Purchase Date</label>
+      <input type="date" name="purchase_date" required>
+
+      <label>Expiry Date</label>
+      <input type="date" name="expiry_date" required>
+
+      <label>Owner Name</label>
+      <input type="text" name="owner_name" placeholder="Enter owner name..." required>
+
+      <label>Owner Email</label>
+      <input type="email" name="owner_email" placeholder="Enter owner email..." required>
+
+      <label>Company</label>
+      <input type="text" name="company" placeholder="Enter company name...">
+
+      <label>Category</label>
+      <select name="category" required>
+        <option value="">Select category</option>
+        <option>Office Suite</option>
+        <option>Design Tool</option>
+        <option>Security</option>
+        <option>Operating System</option>
+        <option>Development</option>
+        <option>Cloud</option>
+        <option>Productivity</option>
+        <option>Analytics</option>
+      </select>
+
+      <button type="submit">Add License</button>
+    </form>
+
+    <div class="nav-buttons">
+      <a href="/license" class="btn">View Licenses</a>
+      <a href="{{ url_for('dashboard') }}" class="btn">Return to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

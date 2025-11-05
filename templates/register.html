@@ -1,0 +1,40 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <H2> Please register here!! </H2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}<br>  
+        {{ form.username }}<br>
+        {{ form.password }}<br>
+        {{ form.submit}}
+    </form>
+    <br>
+    <a href="{{url_for('login')}}">Already have an account? Login Here!!</a><br>
+</body>
+</html> -->
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="register-container">
+    <div class="overlay">
+        <h2>Please register here!!</h2>
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}<br>  
+            {{ form.username }}<br><br>
+            {{ form.password }}<br><br>
+            {{ form.submit }}
+        </form>
+        <br>
+        <a href="{{ url_for('login') }}">Already have an account? Login Here!!</a><br>
+    </div>
+</div>
+
+{% endblock %}
